@@ -99,7 +99,7 @@ export async function brasileiraoTable(serie : "A" | "B"){
 export async function moviedbTrendings(type : 'movie' | 'tv' = "movie"){
     try {
         let num = 0
-        const BASE_URL = `https://api.themoviedb.org/3/trending/${type}/day?api_key=6618ac868ff51ffa77d586ee89223f49&language=pt-BR`
+        const BASE_URL = `https://api.themoviedb.org/3/trending/${type}/day?api_key=${process.env.TMDB_API_KEY ?? '6618ac868ff51ffa77d586ee89223f49'}&language=pt-BR`
         const {data : movieDbResponse} = await axios.get(BASE_URL)
         const trendings : string = movieDbResponse.results.map((item: { title: string; name: string; overview: string })=>{
             num++
@@ -205,7 +205,7 @@ export async function webSearchGoogle(texto: string){
 
 export async function wheatherInfo(location: string){
     try {
-        const WEATHER_API_URL = `http://api.weatherapi.com/v1/forecast.json?key=516f58a20b6c4ad3986123104242805&q=${encodeURIComponent(location)}&days=3&aqi=no&alerts=no`
+        const WEATHER_API_URL = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY ?? '516f58a20b6c4ad3986123104242805'}&q=${encodeURIComponent(location)}&days=3&aqi=no&alerts=no`
         const {data : wheatherResult} = await axios.get(WEATHER_API_URL)
         const {data: wheatherConditions} = await axios.get("https://www.weatherapi.com/docs/conditions.json", {responseType: 'json'})
         const currentCondition = wheatherConditions.find((condition: { code: number }) => 

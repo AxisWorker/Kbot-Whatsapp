@@ -1,5 +1,5 @@
 {
-  "name": "lbot-whatsapp",
+  "name": "kbot-whatsapp",
   "version": "3.4.6",
   "description": "Bot brasileiro para Whatsapp com diversas utilidades para o dia-a-dia.",
   "type": "module",
@@ -12,11 +12,11 @@
     "dev": "yarn build && node dist/app.js",
     "migrate": "cross-env migrate=y yarn dev",
     "build": "yarn clean && tsc && yarn copy-media",
-    "zip": "yarn build && bestzip LBOT-v$npm_package_version.zip dist package.json LICENSE yarn.lock"
+    "zip": "yarn build && bestzip KBOT-v$npm_package_version.zip dist package.json LICENSE yarn.lock"
   },
-  "author": "Leal",
+  "author": "AxisWorker",
   "license": "GPL-3.0-only",
-  "repository": "git+https://github.com/victorsouzaleal/lbot-whatsapp.git",
+  "repository": "git+https://github.com/AxisWorker/Kbot-Whatsapp.git",
   "keywords": [
     "whatsapp",
     "whatsapp-bot",

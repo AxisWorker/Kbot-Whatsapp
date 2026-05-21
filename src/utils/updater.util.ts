@@ -5,7 +5,7 @@ import { showConsoleLibraryError } from './general.util.js'
 export async function checkUpdate(currentBotVersion : string){
     try {
         const [currentMajor, currentMinor, currentPatch] = currentBotVersion.split(".")
-        const {data} = await axios.get('https://api.github.com/repos/victorsouzaleal/lbot-whatsapp/releases/latest', {responseType: 'json'})
+        const {data} = await axios.get('https://api.github.com/repos/AxisWorker/Kbot-Whatsapp/releases/latest', {responseType: 'json'})
         const remoteVersion = data.tag_name
         const [remoteMajor, remoteMinor, remotePatch] = remoteVersion.split(".")
         let response = {
@@ -29,7 +29,7 @@ export async function checkUpdate(currentBotVersion : string){
 
 export async function makeUpdate(path: string = './'){
     try {
-        const {data} = await axios.get('https://api.github.com/repos/victorsouzaleal/lbot-whatsapp/releases/latest', {responseType: 'json'})
+        const {data} = await axios.get('https://api.github.com/repos/AxisWorker/Kbot-Whatsapp/releases/latest', {responseType: 'json'})
         const assetUrl = data.assets[0].browser_download_url
         const {data : remoteVersion} = await axios.get(assetUrl, {responseType: 'arraybuffer'})
         const zipBuffer = Buffer.from(remoteVersion, 'utf-8')
